@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "max-len": [1, 120, 2, {"ignoreComments": true}],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
+    "jsx-a11y/label-has-for": false,
+    "react/forbid-prop-types": false,
+    "react/no-unused-prop-types": false
+    //"react/require-default-props": false
+  },
+  "globals": {
+    "document": true,
+    "window": true,
+    "fetch": true,
+    "Request": true,
+    "Headers": true
+  }
+}
