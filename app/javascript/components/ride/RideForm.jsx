@@ -52,7 +52,7 @@ const rideForm = ({
       onChange={onChange}
       value={ride.return_trip}
     />
-    <SubmitField label={saving ? 'saving' : 'save'} disabled={saving} />
+    <SubmitField label={saving ? 'Saving' : 'Save'} disabled={saving} />
   </form>
 );
 

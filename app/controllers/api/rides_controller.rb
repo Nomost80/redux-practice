@@ -1,5 +1,6 @@
 module Api
   class RidesController < ApplicationController
+
     def index
       render json: Ride.all
     end

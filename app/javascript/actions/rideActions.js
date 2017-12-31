@@ -1,6 +1,10 @@
 import * as types from './actionTypes';
 import rideApi from '../api/rideApi';
 
+export function loadRidesRequest() {
+
+}
+
 export function loadRidesSuccess(rides) {
   return { type: types.LOAD_RIDES_SUCCESS, rides };
 }
@@ -15,6 +19,10 @@ export function loadRides() {
   }).catch(() => {
     throw ('Error while loading rides.');
   });
+}
+
+export function createRideRequest() {
+
 }
 
 export function createRideSuccess(ride) {
@@ -33,6 +41,10 @@ export function createRide(ride) {
   });
 }
 
+export function updateRideRequest() {
+
+}
+
 export function updateRideSuccess(ride) {
   return { type: types.UPDATE_RIDE_SUCCESS, ride };
 }
@@ -47,6 +59,10 @@ export function updateRide(ride) {
   }).catch(() => {
     throw ('Error while updating this ride.');
   });
+}
+
+export function deleteRideRequest() {
+
 }
 
 export function deleteRideSuccess(ride) {

@@ -1,38 +1,37 @@
+import ApiRequest from '../middleware/api';
+
 class RideApi {
-  static getAllRides() {
-    return fetch('http://localhost:3000/api/rides').then(response => response.json()).catch(error => error);
+  static getAllRides(user) {
+    return ApiRequest(`http://localhost:3000/api/rides/${user.id}`, {}, true);
   }
 
   static createRide(ride) {
-    const request = new Request('http://localhost:3000/api/rides/', {
+    const config = {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
       body: JSON.stringify({ ride }),
-    });
-
-    return fetch(request).then(response => response.json()).catch(error => error);
+    };
+    return ApiRequest('http://localhost:3000/api/rides/', config, true);
   }
 
   static updateRide(ride) {
-    const request = new Request(`http://localhost:3000/api/rides/${ride.id}`, {
+    const config = {
       method: 'PUT',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
       body: JSON.stringify({ ride }),
-    });
-
-    return fetch(request).then(response => response.json()).catch(error => error);
+    };
+    return ApiRequest(`http://localhost:3000/api/rides/${ride.id}`, config, true);
   }
 
   static deleteRide(id) {
-    const request = new Request(`http://localhost:3000/api/rides/${id}`, {
+    const config = {
       method: 'DELETE',
-    });
-
-    return fetch(request).then(response => response.json()).catch(error => error);
+    };
+    return ApiRequest(`http://localhost:3000/api/rides/${id}`, config, true);
   }
 }
 

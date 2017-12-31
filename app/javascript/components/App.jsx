@@ -1,12 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/userActions';
 import Header from './common/Header';
-import Main from './common/Main';
+import MainRouter from './common/MainRouter';
 
 const App = () => (
   <div>
-    <Header />
-    <Main />
+    <Header isAuthenticated={this.props.isAuthenticated} logout={this.props.actions.logout} />
+    <MainRouter isAuthenticated={this.props.isAuthenticated} />
   </div>
 );
 
-export default App;
+App.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  actions: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  const { isAuthenticated } = state.auth;
+  return { isAuthenticated };
+};
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps())(App);
