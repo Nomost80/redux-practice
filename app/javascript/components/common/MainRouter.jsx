@@ -16,22 +16,18 @@ const MainRouter = ({ isAuthenticated }) => (
   <div className="ui main text container" style={containerStyle}>
     <Switch>
       <Route exact path={routes.home} component={Home} />
-      {
-        !isAuthenticated &&
-        <Route exact path={routes.signUp} component={SignUpPage} /> &&
-        <Route exact path={routes.login} component={LoginPage} />
+      <Route exact path={routes.signUp} component={SignUpPage} />
+      <Route exact path={routes.login} component={LoginPage} />
+      <Route path={routes.rides} component={RideRouter} />
+      { isAuthenticated &&
+        <Route component={NoMatch} />
       }
-      {
-        isAuthenticated &&
-        <Route path={routes.rides} component={RideRouter} />
-      }
-      <Route component={NoMatch} />
     </Switch>
   </div>
 );
 
 MainRouter.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default MainRouter;

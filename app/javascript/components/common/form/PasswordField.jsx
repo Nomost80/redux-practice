@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PasswordField = ({ name, label, placeholder, onChange, value }) => (
+const PasswordField = ({
+  name, label, placeholder, onChange, value,
+}) => (
   <div className="field">
     <label htmlFor={name}>{label}</label>
     <input

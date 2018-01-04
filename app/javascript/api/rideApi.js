@@ -1,8 +1,8 @@
 import ApiRequest from '../middleware/api';
 
 class RideApi {
-  static getAllRides(user) {
-    return ApiRequest(`http://localhost:3000/api/rides/${user.id}`, {}, true);
+  static getUserRides(userId) {
+    return ApiRequest(`/rides/${userId}`, {}, true);
   }
 
   static createRide(ride) {
@@ -13,7 +13,7 @@ class RideApi {
       }),
       body: JSON.stringify({ ride }),
     };
-    return ApiRequest('http://localhost:3000/api/rides/', config, true);
+    return ApiRequest('/rides', config, true);
   }
 
   static updateRide(ride) {
@@ -24,14 +24,14 @@ class RideApi {
       }),
       body: JSON.stringify({ ride }),
     };
-    return ApiRequest(`http://localhost:3000/api/rides/${ride.id}`, config, true);
+    return ApiRequest(`/rides/${ride.id}`, config, true);
   }
 
   static deleteRide(id) {
     const config = {
       method: 'DELETE',
     };
-    return ApiRequest(`http://localhost:3000/api/rides/${id}`, config, true);
+    return ApiRequest(`/rides/${id}`, config, true);
   }
 }
 

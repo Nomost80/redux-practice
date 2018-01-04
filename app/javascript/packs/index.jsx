@@ -12,12 +12,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from '../store/configureStore';
 import App from '../components/App';
-import { loadRides } from '../actions/rideActions';
+// import { loadRides } from '../actions/rideActions';
 
 /* Lors de la création du store le root reducer est appelé pour initialiser le store */
 const store = configureStore();
 /* On ajoute dans le store les rides */
-store.dispatch(loadRides());
+// store.dispatch(loadRides());
 
 ReactDom.render(
   (

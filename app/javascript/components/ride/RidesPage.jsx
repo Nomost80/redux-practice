@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import toastr from 'toastr';
 import * as actions from '../../actions/rideActions';
 import * as routes from '../../routes';
 import RideList from './RideList';
 import Title from '../common/Title';
-import toastr from 'toastr';
 
 class RidesPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.deleteRide = this.deleteRide.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.actions.loadRides(1);
   }
 
   deleteRide(event) {
@@ -51,9 +55,9 @@ RidesPage.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  if (state.length > 0) {
+  if (state.rides.length > 0) {
     return {
-      rides: state,
+      rides: state.rides,
     };
   }
   return {

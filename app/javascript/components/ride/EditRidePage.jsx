@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import toastr from 'toastr';
 import * as actions from '../../actions/rideActions';
 import * as routes from '../../routes';
 import Title from '../common/Title';
 import RideForm from './RideForm';
-import toastr from 'toastr';
 
 class EditRidePage extends React.Component {
   constructor(props, context) {
@@ -77,7 +77,7 @@ EditRidePage.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => {
   const rideId = parseInt(ownProps.match.params.id, 10);
-  const ride = Object.assign({}, state.find(rd => rd.id === rideId));
+  const ride = Object.assign({}, state.rides.find(rd => rd.id === rideId));
   return {
     ride,
   };

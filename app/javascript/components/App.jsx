@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../actions/userActions';
-import Header from './common/Header';
+import Navbar from './common/Navbar';
 import MainRouter from './common/MainRouter';
 
-const App = () => (
+const App = props => (
   <div>
-    <Header isAuthenticated={this.props.isAuthenticated} logout={this.props.actions.logout} />
-    <MainRouter isAuthenticated={this.props.isAuthenticated} />
+    <Navbar isAuthenticated={props.isAuthenticated} logout={props.actions.logout} />
+    <MainRouter isAuthenticated={props.isAuthenticated} />
   </div>
 );
 
@@ -27,4 +28,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps())(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -5,7 +5,7 @@ export function signUpRequest(user) {
   return {
     type: types.SIGNUP_REQUEST,
     isFetching: true,
-    user
+    user,
   };
 }
 
@@ -13,7 +13,7 @@ export function signUpSuccess(user) {
   return {
     type: types.SIGNUP_SUCCESS,
     isFetching: false,
-    user
+    user,
   };
 }
 
@@ -21,15 +21,15 @@ export function signUpFailure(errors) {
   return {
     type: types.SIGNUP_FAILURE,
     isFetching: false,
-    errors
+    errors,
   };
 }
 
 export function signUp(user) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(signUpRequest(user));
     userApi.signUp(user)
-      .then(response => dispatch(signUpSuccess(user)))
+      .then(() => dispatch(signUpSuccess(user)))
       .catch(err => dispatch(signUpFailure(err)));
   };
 }
@@ -39,7 +39,7 @@ export function loginRequest(user) {
     type: types.LOGIN_REQUEST,
     isFetching: true,
     isAuthenticated: false,
-    user
+    user,
   };
 }
 
@@ -57,15 +57,15 @@ export function loginFailure(errors) {
     type: types.LOGIN_FAILURE,
     isFetching: false,
     isAuthenticated: false,
-    errors
+    errors,
   };
 }
 
 export function login(user) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(loginRequest(user));
     userApi.login(user)
-      .then(({jwt}) => {
+      .then(({ jwt }) => {
         localStorage.setItem('access_token', jwt);
         dispatch(loginSuccess(user));
       })
@@ -77,7 +77,7 @@ export function logoutRequest() {
   return {
     type: types.LOGOUT_REQUEST,
     isFetching: true,
-    isAuthenticated: true
+    isAuthenticated: true,
   };
 }
 
@@ -85,14 +85,14 @@ export function logoutSuccess() {
   return {
     type: types.LOGOUT_SUCCESS,
     isFetching: false,
-    isAuthenticated: false
+    isAuthenticated: false,
   };
 }
 
 export function logout() {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(logoutRequest());
     localStorage.removeItem('access_token');
     dispatch(logoutSuccess());
-  }
+  };
 }

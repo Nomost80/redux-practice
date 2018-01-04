@@ -3,6 +3,9 @@
   "extends": "airbnb",
   "rules": {
     "max-len": [1, 120, 2, {"ignoreComments": true}],
+    "consistent-return": "off",
+    "no-param-reassign": "off",
+    "no-prototype-builtins": "off",
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
       "specialLink": [ "to", "hrefLeft", "hrefRight" ],
@@ -18,6 +21,7 @@
     "window": true,
     "fetch": true,
     "Request": true,
-    "Headers": true
+    "Headers": true,
+    "localStorage": true
   }
 }

@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, except: [:index, :new, :show, :edit, :update, :destroy]
     post 'user_token' => 'user_token#create'
-    resources :rides, except: [:new, :show, :edit]
+    resources :rides, except: [:index, :new, :edit]
   end
 end

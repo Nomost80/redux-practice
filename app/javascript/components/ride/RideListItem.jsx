@@ -10,7 +10,14 @@ const rideListItem = ({ ride, onDelete }) => (
       <button id={ride.id} className="ui button negative" onClick={onDelete}>Supprimer</button>
     </div>
     <div className="content">
-      <p>{ride.date} {ride.reason} {ride.from} {ride.to} {ride.distance} {(ride.return_trip) ? 'aller-retour' : 'retour'}</p>
+      <p>
+        {ride.date}
+        {ride.reason}
+        {ride.from}
+        {ride.to}
+        {ride.distance}
+        {(ride.return_trip) ? 'aller-retour' : 'retour'}
+      </p>
     </div>
   </div>
 );

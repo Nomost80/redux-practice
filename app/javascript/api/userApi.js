@@ -2,25 +2,25 @@ import ApiRequest from '../middleware/api';
 
 class UserApi {
   static signUp(user) {
-    let config = {
+    const config = {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-      body: JSON.stringify({ user })
+      body: JSON.stringify({ user }),
     };
-    return ApiRequest('http://localhost:3000/api/users/create', config);
+    return ApiRequest('/users', config);
   }
 
   static login(user) {
-    let config = {
+    const config = {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-      body: JSON.stringify({ "auth": user })
+      body: JSON.stringify({ auth: user }),
     };
-    return ApiRequest('http://localhost:3000/api/user_token', config);
+    return ApiRequest('/user_token', config);
   }
 }
 

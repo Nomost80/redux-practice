@@ -1,11 +1,13 @@
 /* Dans le cas ou par la suite il y aurait plusieurs reducers */
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import rides from './rideReducer';
-import auth from './userReducer';
+import signup from './signUpReducer';
+import auth from './authReducer';
 
 const rootReducer = combineReducers({
   rides,
-  auth
+  signup,
+  auth,
 });
 
 export default rootReducer;
